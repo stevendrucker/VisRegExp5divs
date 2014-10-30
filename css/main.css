@@ -2,6 +2,12 @@
 body {
   background: #e5e5e5;
   color: #000;
+  -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
 }
 ng-scope {
   fill:red;
@@ -240,18 +246,7 @@ a:focus {
 }
 
 
-svg {
-    min-width: 1200px;
-    min-height:800px;
-    width:100%;
-    height:100%;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    }
+
 
 /* appearance of nodes on canvas */
 .nodeClass  rect {
@@ -277,22 +272,70 @@ svg {
 
 
 
-.NodeClass {
+.compact {
     width: 150px;
     height: 100px;
     padding: 5px;
-    background-color: dimgray;
+    background-color: #343A41;    
+    border: solid 1px black;
+    border-radius: 5px;
+    color: white;
+    text-align:start;
+    vertical-align:text-top;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    z-index:5; 
+}
+
+.expanded {
+    width: 500px;
+    height: 500px;
+    padding: 5px;
+    background-color: #343A41;
     border: solid 1px black;
     border-radius: 5px;
     color: white;
     text-align:start;
     vertical-align:text-top;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index:5;
 }
 
-.expander {
-    position: relative;
+.compact .linker {
+    position: absolute;
+    top: 40px;
+    left: 140px;
+    width: 10px;
+    height: 20px;
+    border-radius: 10px 0 0 10px;
+    background-color: gray;
+    z-index: 3;
+}
+
+.expanded .linker {
+    position: absolute;
+    top: 250px;
+    left: 490px;
+    width: 10px;
+    height: 20px;    
+    border-radius: 10px 0 0 10px;
+    background-color: gray;
+    z-index: 3;
+}
+
+.compact .expander {
+    position: absolute;
     left: 130px;
-    top: 50px;
+    top: 5px;
     cursor:pointer;
+}
+
+.expanded .expander {
+    position: absolute;
+    left: 475px;
+    top: 5px;
+    cursor: pointer;
+}
+
+text {
+    fill: white;
 }
